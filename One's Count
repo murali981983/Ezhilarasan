@@ -5,3 +5,20 @@ output B1,B0;
 assign B1 = A2&A1 | A1&A0 | A2&A0;
 assign B0 = A2 ^ A1 ^ A0;
 endmodule
+
+//Test Bench Program
+module OnesCountTest;
+reg X2, X1, X0;
+wire Y1,Y0;
+integer count;
+OnesCount O1 (X2,X1,X0,Y1,Y0);
+initial begin
+        for (count=0;count<8;count=count+1)
+        begin
+         {X2,X1,X0} = count;
+         #1;
+         $display("X2=%b X1=%b X0=%b ... Y1=%b Y0=%b",
+                X2,X1,X0,Y1,Y0);
+        end
+end
+endmodule
