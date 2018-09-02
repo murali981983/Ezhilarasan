@@ -1,0 +1,7 @@
+//Vverilog code for one's count
+module OnesCount (A2,A1,A0,B1,B0);
+input A2,A1,A0;
+output B1,B0;
+assign B1 = A2&A1 | A1&A0 | A2&A0;
+assign B0 = A2 ^ A1 ^ A0;
+endmodule
